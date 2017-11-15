@@ -11,5 +11,5 @@ List all commits in all git repos which are not reflected on remote. In my cront
 
 ```
 # check for missing pushes
-*/30    *       *       *       *       COMMITS=$(/Users/johannes/Sites/dev-utils/git-outstanding-pushes.sh /Users/johannes/Sites | sed -E "s/"$'\E'"\[([0-9]{1,2}(;[0-9]{1,2})*)?m//g") && if [ $(printf "$COMMITS" | wc -c) -gt "0" ]; then echo $COMMITS | mail -s "Missing git pushes" johannespfeiffer@netnexus.de; fi
+*/15    *       *       *       *       COMMITS=$(/Users/johannes/Sites/dev-utils/git-outstanding-pushes.sh /Users/johannes/Sites | sed -E "s/"$'\E'"\[([0-9]{1,2}(;[0-9]{1,2})*)?m//g") && if [ $(printf "$COMMITS" | wc -c) -gt "0" ]; then display osascript -e 'notification "Missing pushes" with title "git-oustanding-pushes"' && echo $COMMITS | mail -s "Missing git pushes" johannespfeiffer@netnexus.de; fi
 ```
