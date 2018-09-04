@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 DOCKER_BIN=$(which docker)
 
